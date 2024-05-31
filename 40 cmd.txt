@@ -1,0 +1,155 @@
+run cmd as admin
+
+--- IP ---
+1. find ip [ ipconfig ] 
+2. find DNS, MAC ADDRESS(physical address) [ ipconfig /all ]
+
+--- FILTER ---
+3. [ipconfig /all | findstr DNS]
+
+--- RESET IP ADDRESS ---
+4. [ipconfig /release]
+5. [ipconfig /renew]
+
+you can specify the interface
+6. [ipconfig /release "Wi-Fi"]
+
+
+--- Trobleshoot DNS ---
+let see you your pc knows
+7. [ipconfig /displaydns]
+shows sites and their ip
+
+this copys the results from the command and can be peast
+8. [ ipconfig /displaydns | clip ]
+
+this removes any old dns entries in your crash
+9. [ipconfig /flushdns]
+
+you can serch things like dns servers, site and more
+10. [nslookup google.com]
+
+you can specify with the ip
+10. [nslookup google.com 8.8.8.8]
+
+you can specify with the type of dns
+10. [nslookup -type=mx google.com ]
+10. [nslookup -type=ptr google.com ]
+10. [nslookup -type=txt google.com ]
+
+GET MAC ADDRESS QUICK
+11. [getmac /v ]
+
+
+--- GET INFORMATION QUICK ---
+GET POWER-REPORT QUICK
+12. [powercfg /energy ]
+
+GET BATTERY-REPORT QUICK
+13. [powercfg /batteryreport ]
+
+FIND FILES BY THEIR ASSOCIATION.
+14. [assoc] this will display all associations.
+
+you can use this to set the DEFAULT app to open which file.
+14. [assoc .mp4=VLC.vlc ]
+
+
+--- SLOW PC ? ---
+pc slow ? check and fix errors with command below
+15. [chkdsk /f] 
+16. [chkdsk /r] restart may be needed, could take some time
+if still slow, try command below
+17. [sfc /scannow ] system file scan, will scan and fix your system files.
+if still slow, try commands below
+18. [DISM /Online /Cleanup-Image /CheckHealth ] this will check your system image.
+19. [DISM /Online /Cleanup-Image /ScanHealth ] goes a-bit deeper.
+20. [DISM /Online /Cleanup-Image /RestoreHealth ] SLOVE ISSUES.
+
+
+--- BLOCK MISBHAVING SCRIPT ---
+find it on tasklist and kill it
+21. [tasklist | findstr script ] 
+kill it by it's task-id
+22. [taskkill /f /pid 20184 ] 
+
+
+
+
+----- netsh -----
+
+GET REPORT ABOUT YOUR PC's Wi-Fi
+23. [netsh wlan show wlanreport ]
+
+--- show network interfaces on your PC ---
+24. [netsh interface show interface ]
+
+--- show network interfaces IP ---
+25. [netsh interface ip show address | findstr "IP Address" ]
+
+--- show network interfaces DNS  Servers ---
+26. [netsh interface ip show dnsservers ]
+
+--- TURN OFF WINDOWS DEFENDER ---
+27. [netsh advfirewall set allprofiles state off ]
+
+--- TURN ON WINDOWS DEFENDER ---
+28. [netsh advfirewall set allprofiles state on ]
+
+
+
+
+----- NETWORK CONNECTIONS -----
+
+--- CHECK IF IP OR SITE IS CONNECTED AND WORKING ---
+29. [ping 127.0.0.1 ]
+
+--- TO KEEP CHECKING WITHOUT STOPPING ---
+30. [ping -t 127.0.0.1 ]
+
+--- TO CHECK HOW LONG IT TAKES TO REACH A SITE OR SERVER ---
+31. [tracert 127.0.0.1 ]
+
+--- DON'T CHECK DNS ---
+32. [tracert -d 127.0.0.1 ]
+
+--- CHECK WHAT YOU'RE CONNECTED TO, AND WHAT IS CONNECTED TO YOU ---
+33. [netstat ]
+
+--- CHECK OPEN PORTS ---
+34. [netstat -af ]
+
+--- CHECK OPEN PORTS WITH PROCESS ID (PID) ---
+ALSO USED TO GET ACTIVE PORTS
+35. [netstat -O ]
+
+--- GET LIVE STATS EVERY 5 SECONDS ---
+ALSO USED TO GET ACTIVE PORTS
+36. [netstat -e -t 5 ]
+
+--- SHOW THE ROUTES IT TAKES FOR YOUR PC TO GET TO CERTAIN NETWORKS  ---
+37. [route print ]
+
+--- TO MODIFY ROUTES TO GET TO CERTAIN NETWORKS  ---
+
+-- ADD ROUTE --
+    GET TO [192.168.40.0 ] 
+    WHO'S NETMASK IS [255.255.255.0 ]
+    THROUH THIS GATEWAY [10.7.1.44 ]
+38. [route add 192.168.40.0 mask 255.255.255.0 10.7.1.44 ]
+
+-- ADD ROUTE --
+39. [route delete 192.168.40.0 ]
+
+-- GO TO BIOS --
+40. [shutdown /r /fw /f /t 0 ]
+
+
+
+
+
+
+
+
+
+
